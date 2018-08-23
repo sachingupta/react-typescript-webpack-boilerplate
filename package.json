@@ -2,10 +2,11 @@
   "name": "react-typescript-webpack-boilerplate",
   "version": "1.0.0",
   "description": "react typescript webpack boilerplate code",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "install": "npm install",
     "build": "webpack",
+    "build-watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +34,7 @@
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.0",
     "source-map-loader": "^0.2.4",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "webpack": "^3.5.5"
   }
 }
