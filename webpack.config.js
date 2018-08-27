@@ -1,3 +1,5 @@
+var path = require("path");
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -10,11 +12,26 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".css"]
     },
 
     module: {
         rules: [
+            {
+                test: /\.css$/,
+                include: path.join(__dirname, "src/components"),
+                use: [
+                  "style-loader",
+                  {
+                    loader: "typings-for-css-modules-loader",
+                    options: {
+                      modules: true,
+                      namedExport: true,
+                      camelCase: true
+                    }
+                  }
+                ]
+              },
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
